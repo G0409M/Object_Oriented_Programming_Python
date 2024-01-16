@@ -78,7 +78,11 @@ class CountryDataFrame(DataFrame):
         self.dframe = self.dframe[self.dframe['Region'].isin(['Europe', 'Americas', 'Asia'])]
 
     def filter_dataframe_by_letter_a(self):
-        self.dframe = self.dframe[self.dframe['Country'].str.lower().str.contains('a')]
+        # Tworzymy warunek, który sprawdza, czy nazwa kraju zawiera literę 'a'
+        condition = self.dframe['Country'].str.contains('a', na=False, case=False)
+
+        # Filtrujemy ramkę danych na podstawie warunku
+        self.dframe = self.dframe[condition]
 
     def run(self):
         self.dframe = CountryDataFrame.sort_dataframe_by_population(self.dframe)

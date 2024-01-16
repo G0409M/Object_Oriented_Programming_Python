@@ -1,6 +1,5 @@
-import pandas as pd
-import requests
-from CountryDate import  CountryDataFrame
+
+from CountryDate import CountryDataFrame
 
 if __name__ == '__main__':
     api_url = 'https://restcountries.com/v3/alpha'
@@ -9,6 +8,7 @@ if __name__ == '__main__':
                              'EG', 'GR', 'NL', 'PT', 'BE', 'SE', 'CH', 'AT', 'NO', 'DK', 'FI', 'IE', 'CL', 'CO', 'VE', 'PE',
                              'MY', 'SG', 'NZ']
     Country_data = CountryDataFrame(api_url, country_codes)
+    print(Country_data)
     Country_data.run()
     print(Country_data)
     Country_data.visualize_data()
