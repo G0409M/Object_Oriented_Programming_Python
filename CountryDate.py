@@ -100,7 +100,6 @@ class CountryDataFrame(DataFrame):
     def visualize_data(self, output_path='output_plot.png'):
         sns.set(style="whitegrid")
         fig, axes = plt.subplots(nrows=2, ncols=1, figsize=(10, 8))
-
         def format_large_numbers(value, _):
             if value >= 1e6:
                 return f'{value / 1e6:.1f}M'
