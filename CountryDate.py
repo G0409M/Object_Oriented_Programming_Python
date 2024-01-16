@@ -85,14 +85,17 @@ class CountryDataFrame(DataFrame):
         self.dframe = self.dframe[condition]
 
     def run(self):
-        self.dframe = CountryDataFrame.sort_dataframe_by_population(self.dframe)
-        print("Sorted DataFrame:")
         self.filter_dataframe_by_region()
         print("\nFiltered DataFrame by Regions:")
+        print(self.dframe)
         self.filter_dataframe_by_letter_a()
         print("\nFiltered DataFrame by choosing letter a:")
+        print(self.dframe)
         self.dframe = CountryDataFrame.group_dataframe_by_subregion(self.dframe)
         print("\nGrouped DataFrame by Subregion:")
+        print(self.dframe)
+        self.dframe = CountryDataFrame.sort_dataframe_by_population(self.dframe)
+        print("Sorted DataFrame:")
 
     def visualize_data(self, output_path='output_plot.png'):
         sns.set(style="whitegrid")
