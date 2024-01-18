@@ -38,13 +38,11 @@ class TestCountryDataFrameMethods(unittest.TestCase):
         # Call the static method to sort the DataFrame by Population
         sorted_df = CountryDataFrame.sort_dataframe_by_population(self.country_df.dframe)
 
-        # Sort both dataframes by the "Country" column for comparison
-        sorted_df = sorted_df.sort_values(by='Country').reset_index(drop=True)
         expected_result = pd.DataFrame([
-            ['Canada', 37590000, 'Americas', 'Northern America', 9976140, 'Ottawa', 32.6],
+            ['United States', 328000000, 'Americas', 'Northern America', 9833517, 'Washington, D.C.', 41.5],
             ['Poland', 38000000, 'Europe', 'Eastern Europe', 312696, 'Warsaw', 32.0],
-            ['United States', 328000000, 'Americas', 'Northern America', 9833517, 'Washington, D.C.', 41.5]
-        ], columns=self.columns).sort_values(by='Country').reset_index(drop=True)
+            ['Canada', 37590000, 'Americas', 'Northern America', 9976140, 'Ottawa', 32.6]
+        ], columns=self.columns).reset_index(drop=True)
 
         # Assertions to check if the sorting is done correctly
         pd.testing.assert_frame_equal(sorted_df, expected_result)
